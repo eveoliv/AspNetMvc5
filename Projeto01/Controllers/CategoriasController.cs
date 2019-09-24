@@ -21,7 +21,9 @@ namespace Projeto01.Controllers
         // GET: Categorias
         public ActionResult Index()
         {
-            var categoria = categorias.OrderBy(c => c.Nome);
+            var categoria =
+                categorias.OrderBy(c => c.Nome);
+
             return View(categoria);
         }
 
@@ -36,14 +38,17 @@ namespace Projeto01.Controllers
         public ActionResult Create(Categoria categoria)
         {
             categorias.Add(categoria);
-            categoria.CategoriaId = categorias.Select(c => c.CategoriaId).Max() + 1;
+            categoria.CategoriaId = 
+                categorias.Select(c => c.CategoriaId).Max() + 1;
 
             return RedirectToAction("Index");
         }
 
         public ActionResult Edit(long id)
         {
-            var categoria = categorias.Where(c => c.CategoriaId == id).First();
+            var categoria = 
+                categorias.Where(c => c.CategoriaId == id).First();
+
             return View(categoria);
         }
 
@@ -51,9 +56,20 @@ namespace Projeto01.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Categoria categoria)
         {
-            categorias.Remove(categorias.Where(c => c.CategoriaId == categoria.CategoriaId).First());
+            categorias.Remove(categorias.Where
+                (c => c.CategoriaId == categoria.CategoriaId).First());
+
             categorias.Add(categoria);
+
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Details(long id)
+        {
+            var categoria = 
+                categorias.Where(c => c.CategoriaId == id).First();
+
+            return View(categoria);
         }
     }
 }
