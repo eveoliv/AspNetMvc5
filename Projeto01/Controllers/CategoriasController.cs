@@ -38,7 +38,7 @@ namespace Projeto01.Controllers
         public ActionResult Create(Categoria categoria)
         {
             categorias.Add(categoria);
-            categoria.CategoriaId = 
+            categoria.CategoriaId =
                 categorias.Select(c => c.CategoriaId).Max() + 1;
 
             return RedirectToAction("Index");
@@ -46,7 +46,7 @@ namespace Projeto01.Controllers
 
         public ActionResult Edit(long id)
         {
-            var categoria = 
+            var categoria =
                 categorias.Where(c => c.CategoriaId == id).First();
 
             return View(categoria);
@@ -66,10 +66,28 @@ namespace Projeto01.Controllers
 
         public ActionResult Details(long id)
         {
+            var categoria =
+                categorias.Where(c => c.CategoriaId == id).First();
+
+            return View(categoria);
+        }
+
+        public ActionResult Delete(long id)
+        {
             var categoria = 
                 categorias.Where(c => c.CategoriaId == id).First();
 
             return View(categoria);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(Categoria categoria)
+        {         
+             categorias.Remove(categorias.Where
+                 (c => c.CategoriaId == categoria.CategoriaId).First());
+
+            return RedirectToAction("Index");
         }
     }
 }
