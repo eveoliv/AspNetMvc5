@@ -1,8 +1,8 @@
-﻿@model IEnumerable<Projeto01.Models.Categoria>
+﻿@model IEnumerable<Projeto01.Models.Fabricante>
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Listagem de CATEGORIAS";
+   Layout = "~/Views/Shared/_Layout.cshtml";
+   ViewBag.Title = "Listagem de FABRICANTES";
 }
 
 <!DOCTYPE html>
@@ -30,9 +30,9 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.CategoriaId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.CategoriaId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.CategoriaId })
+                @Html.ActionLink("Edit", "Edit", new { id=item.FabricanteId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.FabricanteId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.FabricanteId })
             </td>
         </tr>
     }

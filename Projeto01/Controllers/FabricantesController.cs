@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace Projeto01.Controllers
 {
-    public class FabricanteController : Controller
+    public class FabricantesController : Controller
     {
         private EFContext context = new EFContext();    
 
