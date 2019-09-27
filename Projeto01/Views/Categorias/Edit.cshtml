@@ -1,8 +1,10 @@
 ﻿@model Projeto01.Models.Categoria
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Alterando os dados de uma CATEGORIA";
+                /**/
+
+                Layout = "~/Views/Shared/_Layout.cshtml";
+                ViewBag.Title = "Alterando os dados de uma CATEGORIA";
 }
 
 @using (Html.BeginForm())
@@ -41,5 +43,12 @@
     <script src="~/Scripts/jquery.validate.min.js">
     </script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js">
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('li').removeClass("active");
+            $('#liCategorias').addClass("active");
+        });
     </script>
 }

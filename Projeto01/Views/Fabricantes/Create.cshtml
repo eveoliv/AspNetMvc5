@@ -17,7 +17,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Nome, new {htmlAttributes = new {@class = "form-control" } })
+                        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                 <input type="submit"
                        value="Adicionar Fabricante"
                        class="btn btn-danger" />
-                @Html.ActionLink("Retornar para a listagem de FABRICANTES", "Index", null, new { @class ="btn btn-warning" })
+                @Html.ActionLink("Retornar para a listagem de FABRICANTES", "Index", null, new { @class = "btn btn-warning" })
             </div>
             <br />
             <br />
@@ -41,4 +41,12 @@
     </script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js">
     </script>
+
+    <script type="text/javascript">
+          $(document).ready(function () {
+          $('li').removeClass("active");
+          $('#liFabricantes').addClass("active");
+    });
+    </script>
+    
 }
