@@ -11,7 +11,10 @@ namespace Projeto01.Contexts
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class EFContext : DbContext
     {
-        public EFContext() : base("asp_net_mvc_cs") { }
+        public EFContext() : base("asp_net_mvc_cs") {
+            Database.SetInitializer<EFContext>(
+                new DropCreateDatabaseIfModelChanges<EFContext>());
+        }
 
         public DbSet<Categoria>  Categorias  { get; set; }
         public DbSet<Fabricante> Fabricantes { get; set; }

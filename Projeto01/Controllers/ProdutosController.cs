@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
+using Projeto01.Models;
 
 namespace Projeto01.Controllers
 {
@@ -14,8 +16,9 @@ namespace Projeto01.Controllers
         // GET: Produtos
         public ActionResult Index()
         {
-            var produto = context.Produtos.OrderBy(p => p.Nome);
-            return View(produto);
+            var produtos = context.Produtos.
+                Include(c => c.Categoria).Include(f => f.Fabricante).OrderBy(n => n.Nome);
+            return View(produtos);
         }
 
         // GET: Produtos/Details/5
@@ -27,22 +30,29 @@ namespace Projeto01.Controllers
         // GET: Produtos/Create
         public ActionResult Create()
         {
+            ViewBag.CategoriaId = 
+                new SelectList(context.Categorias.OrderBy(c => c.Nome), "CategoriaId", "Nome");
+
+            ViewBag.FabricanteId =
+                new SelectList(context.Fabricantes.OrderBy(f => f.Nome), "FabricanteId", "Nome");
+
             return View();
         }
 
         // POST: Produtos/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Produto produto)
         {
             try
             {
-                // TODO: Add insert logic here
+                context.Produtos.Add(produto);
+                context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(produto);
             }
         }
 

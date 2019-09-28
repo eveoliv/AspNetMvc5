@@ -327,6 +327,10 @@
     <Compile Include="Migrations\201909250138313_FirstMigration.Designer.cs">
       <DependentUpon>201909250138313_FirstMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909272331536_AddProdutos.cs" />
+    <Compile Include="Migrations\201909272331536_AddProdutos.Designer.cs">
+      <DependentUpon>201909272331536_AddProdutos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Fabricante.cs" />
@@ -355,6 +359,7 @@
     <Content Include="Views\Fabricantes\Details.cshtml" />
     <Content Include="Views\Fabricantes\Delete.cshtml" />
     <Content Include="Views\Produtos\Index.cshtml" />
+    <Content Include="Views\Produtos\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -368,6 +373,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201909250138313_FirstMigration.resx">
       <DependentUpon>201909250138313_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909272331536_AddProdutos.resx">
+      <DependentUpon>201909272331536_AddProdutos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
