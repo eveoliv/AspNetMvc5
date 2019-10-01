@@ -17,7 +17,7 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.FabricanteId)
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class ="control-label col-md-2" })
+                    @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
@@ -36,16 +36,18 @@
     </div>
 }
 
+        @Html.Partial("~/Views/Produtos/_PorFabricante.cshtml", Model.Produtos.ToList())
+
 @section ScriptPage {
     <script src="~/Scripts/jquery.validate.min.js">
     </script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js">
     </script>
-   
-   <script type="text/javascript">
-       $(document).ready(function () {
-       $('li').removeClass("active");
-       $('#liFabricantes').addClass("active");
-       });
-   </script>   
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('li').removeClass("active");
+            $('#liFabricantes').addClass("active");
+        });
+    </script>
 }
