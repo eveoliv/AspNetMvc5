@@ -121,5 +121,24 @@ namespace Projeto01.Controllers
                 return View();
             }
         }
+
+        // GET: Produtos/Details/5
+        public ActionResult Details(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Produto produto = context.Produtos.Where(p => p.ProdutoId == id)
+                .Include(c => c.Categoria).Include(f => f.Fabricante).First();
+
+            if (produto == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(produto);
+        }
     }
 }
