@@ -326,7 +326,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contexts\EFContext.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\FabricantesController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
@@ -403,6 +402,10 @@
     <ProjectReference Include="..\Modelo\Modelo.csproj">
       <Project>{d4e74b1d-22cd-4791-bba6-336e4e7b8271}</Project>
       <Name>Modelo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Persistencia\Persistencia.csproj">
+      <Project>{c0de6fb5-0dab-4efb-991e-afcf29730023}</Project>
+      <Name>Persistencia</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

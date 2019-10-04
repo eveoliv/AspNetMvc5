@@ -6,8 +6,9 @@ using System.Data.Entity;
 using MySql.Data.Entity;
 using Modelo.Tabelas;
 using Modelo.Cadastros;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
-namespace Projeto01.Contexts
+namespace Persistencia.Contexts
 {
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class EFContext : DbContext
@@ -17,10 +18,17 @@ namespace Projeto01.Contexts
                 new DropCreateDatabaseIfModelChanges<EFContext>());
         }
 
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+    }
+
         public DbSet<Categoria>  Categorias  { get; set; }
         public DbSet<Fabricante> Fabricantes { get; set; }
         public DbSet<Produto>    Produtos    { get; set; }
     }
+
 }
 /*
  * Enable-Migrations 
