@@ -1,20 +1,20 @@
 ﻿using Modelo.Cadastros;
-using Persistencia.Contexts;
+using Persistencia.DAL.Cadastros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistencia.DAL.Cadastros
+namespace Servicos.Cadastros
 {
-    public class FabricanteDAL
+    public class FabricanteServico
     {
-        private EFContext context = new EFContext();
+        private FabricanteDAL fabricanteDAL = new FabricanteDAL();
 
         public IQueryable<Fabricante> ObterFabricantesClassificadosPorNome()
         {
-            return context.Fabricantes.OrderBy(f => f.Nome);
+            return fabricanteDAL.ObterFabricantesClassificadosPorNome();
         }
     }
 }
