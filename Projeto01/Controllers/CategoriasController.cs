@@ -2,11 +2,11 @@
 using System.Web;
 using System.Linq;
 using System.Web.Mvc;
-using Projeto01.Models;
 using System.Collections.Generic;
 using Projeto01.Contexts;
 using System.Net;
 using System.Data.Entity;
+using Modelo.Tabelas;
 
 namespace Projeto01.Controllers
 {

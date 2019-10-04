@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Projeto01.Models.Produto>
+﻿@model IEnumerable<Modelo.Cadastros.Produto>
 
 @{
 
@@ -21,13 +21,11 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th>
-                        ProdutoId
-                        @*@Html.DisplayNameFor(model =>model.ProdutoId)*@
+                    <th>                        
+                        @Html.DisplayNameFor(model =>model.ProdutoId)
                     </th>
-                    <th>
-                        Nome
-                        @*@Html.DisplayNameFor(model => model.Nome)*@
+                    <th>                  
+                        @Html.DisplayNameFor(model => model.Nome)
                     </th>
                     <th>Categoria</th>
                     <th>Fabricante</th>

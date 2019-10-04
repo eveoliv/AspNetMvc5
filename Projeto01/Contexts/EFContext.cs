@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Projeto01.Models;
 using System.Data.Entity;
 using MySql.Data.Entity;
+using Modelo.Tabelas;
+using Modelo.Cadastros;
 
 namespace Projeto01.Contexts
 {
