@@ -14,7 +14,7 @@ namespace Projeto01.Controllers
 {
     public class ProdutosController : Controller
     {
-        // Private Methods>>>>>>>>>>>>>>>>>>
+        // Private Methods>>>>>>>>>>>>>>>>>>>>>>
         private ProdutoServico produtoServico = new ProdutoServico();
         private CategoriaServico categoriaServico = new CategoriaServico();
         private FabricanteServico fabricanteServico = new FabricanteServico(); 
@@ -73,7 +73,7 @@ namespace Projeto01.Controllers
             }
         }
 
-        //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
         // GET: Produtos
         public ActionResult Index()
         {

@@ -7,6 +7,7 @@ using MySql.Data.Entity;
 using Modelo.Tabelas;
 using Modelo.Cadastros;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using Persistencia.Migrations;
 
 namespace Persistencia.Contexts
 {
@@ -15,7 +16,7 @@ namespace Persistencia.Contexts
     {
         public EFContext() : base("asp_net_mvc_cs") {
             Database.SetInitializer<EFContext>(
-                new DropCreateDatabaseIfModelChanges<EFContext>());
+                new MigrateDatabaseToLatestVersion<EFContext, Configuration>());
         }
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)

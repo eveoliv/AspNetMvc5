@@ -1,5 +1,6 @@
 ﻿using Modelo.Cadastros;
 using Persistencia.Contexts;
+using Servicos.Cadastros;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,18 +13,68 @@ namespace Projeto01.Controllers
 {
     public class FabricantesController : Controller
     {
-        private EFContext context = new EFContext();    
+        // Private Methods >>>>>>>>>>>>>>>>>>>>>>>>>
+        private FabricanteServico fabricanteServico = new FabricanteServico();
+
+        private ActionResult ObterVisaoFabricantePorId(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Fabricante fabricante = fabricanteServico.ObterFabricantePorId((long)id);
+
+            if (fabricante == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(fabricante);
+        }
+         
+        private void PopularViewBag(Fabricante fabricante = null)
+        {
+            if (fabricante == null)
+            {
+                ViewBag.FabricanteId = new SelectList(fabricanteServico
+                    .ObterFabricantesClassificadosPorNome(), "FabricanteId", "Nome");
+            }
+            else
+            {
+                ViewBag.FabricanteId = new SelectList(fabricanteServico
+                    .ObterFabricantesClassificadosPorNome(), "FabricanteId", "Nome", fabricante.FabricanteId);
+            }
+        }
+
+        private ActionResult GravarFabricante(Fabricante fabricante)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    fabricanteServico.GravarFabricante(fabricante);
+                    return RedirectToAction("Index");
+                }
+                return View(fabricante);
+            }
+            catch 
+            {
+                return View(fabricante);
+            }
+        }
+        //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<       
 
         // GET: Fabricante
         public ActionResult Index()
         {
-            var fabricante = context.Fabricantes.OrderBy(f => f.Nome);
-
+            var fabricante = fabricanteServico.ObterFabricantesClassificadosPorNome();
             return View(fabricante);
         }
 
         public ActionResult Create()
         {
+            PopularViewBag();
             return View();
         }
 
@@ -31,85 +82,46 @@ namespace Projeto01.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Fabricante fabricante)
         {
-            context.Fabricantes.Add(fabricante);
-            context.SaveChanges();
-
-            return RedirectToAction("Index");
+            return GravarFabricante(fabricante);
         }
 
         public ActionResult Edit(long? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            Fabricante fabricante = context.Fabricantes.Find(id);
-            if (fabricante == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(fabricante);
+            PopularViewBag(fabricanteServico.ObterFabricantePorId((long)id));
+            return ObterVisaoFabricantePorId(id);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Fabricante fabricante)
         {
-            if (ModelState.IsValid)     
-            {
-                context.Entry(fabricante).State = EntityState.Modified;
-                context.SaveChanges();
-
-                return RedirectToAction("Index");
-            }
-
-            return View(fabricante);
+            return GravarFabricante(fabricante);
         }
 
         public ActionResult Details(long? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            Fabricante fabricante = context.Fabricantes.Find(id);
-
-            if (fabricante == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(fabricante);
+            return ObterVisaoFabricantePorId(id);
         }
 
         public ActionResult Delete(long? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            Fabricante fabricante = context.Fabricantes.Find(id);
-            if (fabricante == null)
-            {
-                return HttpNotFound();
-            }
-            return View(fabricante);
+            return ObterVisaoFabricantePorId(id);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(long id)
         {
-            Fabricante fabricante = context.Fabricantes.Find(id);
-            context.Fabricantes.Remove(fabricante);
-            context.SaveChanges();
-            TempData["Message"] = $"Fabricante {fabricante.Nome.ToUpper()} foi removido.";
-
-            return RedirectToAction("Index");
+            try
+            {
+                Fabricante fabricante = fabricanteServico.EliminarFabricantePorId(id);
+                TempData["Message"] = $"Fabricante {fabricante.Nome.ToUpper()} foi removido.";
+                return RedirectToAction("Index");
+            }
+            catch 
+            {
+                return View();
+            }
         }
     }
 }
