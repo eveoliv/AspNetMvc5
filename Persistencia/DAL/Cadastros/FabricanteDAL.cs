@@ -25,7 +25,7 @@ namespace Persistencia.DAL.Cadastros
 
         public void GravarFabricante(Fabricante fabricante)
         {
-            if (fabricante.FabricanteId == null)
+            if (fabricante.FabricanteId == 0)
             {
                 context.Fabricantes.Add(fabricante);
             }

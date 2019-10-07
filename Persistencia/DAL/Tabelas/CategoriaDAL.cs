@@ -25,16 +25,17 @@ namespace Persistencia.DAL.Tabelas
 
         public void GravarCategoria(Categoria categoria)
         {
-            if (categoria.CategoriaId == null)
+            if (categoria.CategoriaId == 0)
             {
                 context.Categorias.Add(categoria);
             }
             else
             {
                 context.Entry(categoria).State = EntityState.Modified;
-            }
+            }                              
             context.SaveChanges();
         }
+
         public Categoria EliminarCategoriaPorId(long id)
         {
             Categoria categoria = ObterCategoriaPorId(id);

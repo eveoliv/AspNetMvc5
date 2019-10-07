@@ -25,6 +25,7 @@ namespace Persistencia.DAL.Cadastros
                 Include(c => c.Categoria).
                 Include(f =>f.Fabricante).First();
         }
+
         public void GravarProduto(Produto produto)
         {
             if (produto.ProdutoId == null)
@@ -37,6 +38,7 @@ namespace Persistencia.DAL.Cadastros
             }
             context.SaveChanges();
         }
+
         public Produto EliminarProdutoPorId(long id)
         {
             Produto produto = ObterProdutoPorId(id);
