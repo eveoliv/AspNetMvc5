@@ -56,10 +56,13 @@ namespace Projeto01.Controllers
                     categoriaServico.GravarCategoria(categoria);
                     return RedirectToAction("Index");
                 }
+
+                PopularViewBag(categoria);
                 return View(categoria);
             }
             catch 
             {
+                PopularViewBag(categoria);
                 return View(categoria);
             }
         }

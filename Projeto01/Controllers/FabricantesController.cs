@@ -56,10 +56,12 @@ namespace Projeto01.Controllers
                     fabricanteServico.GravarFabricante(fabricante);
                     return RedirectToAction("Index");
                 }
+                PopularViewBag(fabricante);
                 return View(fabricante);
             }
             catch 
             {
+                PopularViewBag(fabricante);
                 return View(fabricante);
             }
         }
