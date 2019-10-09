@@ -15,11 +15,21 @@
         <div class="panel-body">
             <div class="form-horizontal">
                 <h4>Produto</h4>
+                
                 @Html.Partial("~/Views/Produtos/_PartialEditContentPanel.cshtml", Model)   
+            </div>
+            <div class="panel-footer panel-info">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Gravar alterações" class="btn btn-info" />
+                    @Html.ActionLink("Retornar para a listagem de PRODUTOS", "Index", null, new { @class = "btn btn-warning" })
+                </div>
+                <br />
+                <br />
             </div>
        </div>
     </div>
 }
+
 
 @section ScriptPage {
     <script type="text/javascript">
