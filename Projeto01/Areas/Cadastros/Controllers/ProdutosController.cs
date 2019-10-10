@@ -10,7 +10,7 @@ using Persistencia.Contexts;
 using Servicos.Cadastros;
 using Servicos.Tabelas;
 
-namespace Projeto01.Controllers
+namespace Projeto01.Areas.Cadastros.Controllers
 {
     public class ProdutosController : Controller
     {
