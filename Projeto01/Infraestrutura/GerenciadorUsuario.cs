@@ -13,7 +13,10 @@ namespace Projeto01.Infraestrutura
 {
     public class GerenciadorUsuario : UserManager<Usuario>
     {
-        public GerenciadorUsuario(IUserStore<Usuario> store) : base(store){}
+        public GerenciadorUsuario(IUserStore<Usuario> store) : base(store)
+        {   
+            //UserValidator = new UserValidator<Usuario>(this) { AllowOnlyAlphanumericUserNames = false };
+        }
 
         public static GerenciadorUsuario Create(IdentityFactoryOptions<GerenciadorUsuario> 
             options, IOwinContext context)

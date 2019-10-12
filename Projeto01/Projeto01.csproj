@@ -400,6 +400,7 @@
     <Content Include="Areas\Tabelas\Views\Categorias\Index.cshtml" />
     <Content Include="Areas\Seguranca\Views\web.config" />
     <Content Include="Areas\Seguranca\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Seguranca\Views\Admin\Create.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -433,6 +434,7 @@
     <Compile Include="Areas\Cadastros\CadastrosAreaRegistration.cs" />
     <Compile Include="Areas\Cadastros\Controllers\FabricantesController.cs" />
     <Compile Include="Areas\Cadastros\Controllers\ProdutosController.cs" />
+    <Compile Include="Areas\Seguranca\Models\SeguracaViewModelos.cs" />
     <Compile Include="DAL\IdentityDbContextAplicacao.cs" />
     <Compile Include="Areas\Seguranca\Controllers\AdminController.cs" />
     <Compile Include="Areas\Seguranca\Models\Usuario.cs" />
