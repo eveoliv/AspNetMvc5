@@ -2,7 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using Projeto01.Areas.DAL;
+using Projeto01.DAL;
 using Projeto01.Areas.Seguranca.Models;
 using System;
 using System.Collections.Generic;
