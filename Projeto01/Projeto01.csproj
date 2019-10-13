@@ -401,6 +401,7 @@
     <Content Include="Areas\Seguranca\Views\web.config" />
     <Content Include="Areas\Seguranca\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Seguranca\Views\Admin\Create.cshtml" />
+    <Content Include="Areas\Seguranca\Views\Admin\Edit.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
