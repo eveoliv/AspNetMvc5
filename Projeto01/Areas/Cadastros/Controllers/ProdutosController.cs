@@ -77,6 +77,7 @@ namespace Projeto01.Areas.Cadastros.Controllers
 
         //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
         // GET: Produtos
+        [Authorize]
         public ActionResult Index()
         {
             var produtos = produtoServico.ObterProdutosClassificadosPorNome();

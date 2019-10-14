@@ -70,6 +70,7 @@ namespace Projeto01.Areas.Tabelas.Controllers
         //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
         // GET: Categorias
+        [Authorize]
         public ActionResult Index()
         {
             var categoria = categoriaServico.ObterCategoriasClassificadasPorNome();

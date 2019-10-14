@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-xs-3 col-md-3 bg-success">
                 <ul class="nav nav-pills nav-stacked">
-
+                    <br />
                     <li id="liHome" role="presentation" class="active">
                         <a href="#">Home</a>
                     </li>
@@ -48,6 +48,10 @@
                     <li id="liProdutos" role="presentation">
                         @Html.ActionLink("Produtos", "Index", "Produtos", new { area = "Cadastros" }, null)
                     </li>
+
+                    <li id="liUsuarios" role="presentation">
+                        @Html.ActionLink("Usuários", "Index", "Admin", new { area = "Seguranca" },null)
+                </li>
                     <br />
                 </ul>
             </div>

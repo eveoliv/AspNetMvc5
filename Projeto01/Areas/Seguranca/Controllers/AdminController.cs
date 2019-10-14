@@ -14,6 +14,7 @@ namespace Projeto01.Areas.Seguranca.Controllers
     public class AdminController : Controller
     {
         // GET: Seguranca/Admin
+        [Authorize]
         public ActionResult Index()
         {
             var usu = GerenciadorUsuario.Users;

@@ -68,6 +68,7 @@ namespace Projeto01.Areas.Cadastros.Controllers
         //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<       
 
         // GET: Fabricante
+        [Authorize]
         public ActionResult Index()
         {
             var fabricante = fabricanteServico.ObterFabricantesClassificadosPorNome();
