@@ -143,5 +143,21 @@ namespace Projeto01.Areas.Seguranca.Controllers
             }
         }
 
+        public ActionResult Details(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Usuario usuario = GerenciadorUsuario.FindById(id);
+
+            if (usuario == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(usuario);
+        }
     }
 }
