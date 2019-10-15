@@ -419,6 +419,7 @@
     <Content Include="Areas\Seguranca\Views\Admin\Details.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Areas\Seguranca\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Seguranca\Views\PapelAdmin\Index.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -454,6 +455,8 @@
     <Compile Include="Areas\Cadastros\Controllers\FabricantesController.cs" />
     <Compile Include="Areas\Cadastros\Controllers\ProdutosController.cs" />
     <Compile Include="Areas\Seguranca\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Seguranca\Controllers\PapelAdminController.cs" />
+    <Compile Include="Areas\Seguranca\Models\Papel.cs" />
     <Compile Include="Areas\Seguranca\Models\SeguracaViewModelos.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\IdentityDbContextAplicacao.cs" />
@@ -465,7 +468,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infraestrutura\GerenciadorPapel.cs" />
     <Compile Include="Infraestrutura\GerenciadorUsuario.cs" />
+    <Compile Include="Infraestrutura\IdentityHelpers.cs" />
     <Compile Include="Migrations\201910121808062_FirstSecutityMigrationDb.cs" />
     <Compile Include="Migrations\201910121808062_FirstSecutityMigrationDb.Designer.cs">
       <DependentUpon>201910121808062_FirstSecutityMigrationDb.cs</DependentUpon>

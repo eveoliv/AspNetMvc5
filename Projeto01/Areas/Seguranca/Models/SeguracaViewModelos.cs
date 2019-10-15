@@ -8,6 +8,7 @@ namespace Projeto01.Areas.Seguranca.Models
 {
     public class UsuarioViewModel
     {
+        [Key]
         public string Id { get; set; }
         [Required]
         public string Nome { get; set; }
