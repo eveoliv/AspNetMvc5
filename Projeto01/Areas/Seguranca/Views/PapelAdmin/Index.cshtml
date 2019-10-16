@@ -2,6 +2,7 @@
 @using Projeto01.Areas.Seguranca.Models
 @model IEnumerable<Papel>
 
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Listando os papéis registrados";
@@ -12,13 +13,13 @@
 
     <table class="table table-striped">
         <tr><th>ID</th><th>Nome</th><th>Usuários</th><th></th></tr>
-        @if (Model.Count() == 0 )
+        @if (Model.Count() == 0)
         {
             <tr><td colspan="4" class="text-center">Sem papéis registrados</td></tr>
         }
         else
-        {
-            foreach (Papel role in Model)
+        {            
+            foreach (Papel role in Model.ToList())
             {
                 <tr>
                     <td>@role.Id</td>

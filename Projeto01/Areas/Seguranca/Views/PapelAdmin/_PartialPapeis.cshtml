@@ -1,0 +1,33 @@
+﻿@using Projeto01.Infraestrutura
+@using Projeto01.Areas.Seguranca.Models
+@model IEnumerable<Papel>
+
+
+@foreach (Papel role in Model)
+{
+<tr>
+    <td>@role.Id</td>
+    <td>@role.Name</td>
+    <td>
+        @if (role.Users == null || role.Users.Count == 0)
+        {
+            @: Sem usuários no papel
+                        }
+        else
+        {
+            <p>
+                @string.Join(", ", role.Users.Select(x => Html.GetUserName(x.UserId)))
+            </p>
+        }
+    </td>
+    <td>
+        @using (Html.BeginForm("Delete", "PapelAdmin", new { id = role.Id }))
+        {
+            @Html.ActionLink("Alterar", "Edit", new { id = role.Id }, new { @class = "btn btn-primary btn-xs" })
+            <button class="btn btn-danger btn-xs" type="submit">
+                Delete
+            </button>
+        }
+    </td>
+</tr>
+}
