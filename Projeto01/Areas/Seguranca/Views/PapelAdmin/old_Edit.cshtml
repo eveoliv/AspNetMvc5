@@ -9,7 +9,7 @@
 @Html.ValidationSummary()
 @using (Html.BeginForm())
 {
-    <input type="hidden" name="nomePapel" value="@Model.Papel.Name" />
+<input type="hidden" name="nomePapel" value="@Model.Papel.Name" />
     <div class="panel panel-primary">
         <div class="panel-heading">
             Adicionar para @Model.Papel.Name
@@ -17,7 +17,7 @@
         <table class="table table-striped">
             @if (Model.NaoMembros.Count() == 0)
             {
-                <tr>
+<tr>
                     <td colspan="2">
                         Todos os usuários são membros
                     </td>
@@ -33,7 +33,7 @@
                 </tr>
                 foreach (Usuario usuario in Model.NaoMembros)
                 {
-                    <tr>
+<tr>
                         <td>@usuario.UserName</td>
                         <td>
                             <input type="checkbox" name="IdsParaAdicionar" value="@usuario.Id">
@@ -51,7 +51,7 @@
         <table class="table table-striped">
             @if (Model.Membros.Count() == 0)
             {
-                <tr>
+<tr>
                     <td colspan="2">Sem usuários membros</td>
                 </tr>
             }
@@ -63,7 +63,7 @@
                 </tr>
                 foreach (Usuario usuario in Model.Membros)
                 {
-                    <tr>
+<tr>
                         <td>@usuario.UserName</td>
                         <td>
                             <input type="checkbox" name="IdsParaRemover" value="@usuario.Id">

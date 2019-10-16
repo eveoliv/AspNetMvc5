@@ -88,15 +88,20 @@ namespace Projeto01.Areas.Seguranca.Controllers
         public ActionResult Edit(string id)
         {
             Papel papel = RoleManager.FindById(id);
-            string[] memberIDs = papel.Users.Select(x => x.UserId).ToArray();
+            
+            string[] memberIDs = papel.Users.Select(x => x.UserId).ToArray();                               
             IEnumerable<Usuario> membros = UserManager.Users.Where(x => memberIDs.Any(y => y == x.Id));
             IEnumerable<Usuario> naoMembros = UserManager.Users.Except(membros);
-            return View(new PapelEditModel
+
+            PapelEditModel papeis = new PapelEditModel
             {
                 Papel = papel,
                 Membros = membros,
                 NaoMembros = naoMembros
-            });
+            };
+           
+            return View(papeis);
+            
         }
 
         [HttpPost]
